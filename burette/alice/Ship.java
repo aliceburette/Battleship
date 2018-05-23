@@ -1,7 +1,5 @@
 package burette.alice;
 
-import com.sun.xml.internal.bind.v2.TODO;
-
 public class Ship {
     public int size;
     public int coord[][];
