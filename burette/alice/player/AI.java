@@ -73,6 +73,11 @@ public abstract class AI implements IPlay {
         return true;
     }
     public void autoShip() {
+        // Cette fonction devait à l'origine placer les bateaux aléatoirement
+        // ce placement aléatoire provoquait une erreur qui bloquait le programme dans une boucle infinie
+        // l'erreur n'ayant pas été trouvée avant la date de rendu, la méthode a malheureusement due être remplacée par
+        // une méthode qui place les bateaux à des coordonnées prédéfinies ci-dessous
+        // après la méthode originale laissée en commentaire.
 /*
         boolean notChecked;
         int orientation;
@@ -112,13 +117,8 @@ public abstract class AI implements IPlay {
             }
         }
 */
-        this.ships[0].setShip("C3", "C7");
-        this.ships[1].setShip("J3", "J6");
-        this.ships[2].setShip("G0", "I0");
-        this.ships[3].setShip("H7", "J7");
-        this.ships[4].setShip("C0", "C1");
-/*
-        int number = (int) (Math.random() * 2.99);
+
+        int number = (int) (Math.random() * 1.99);
 
         switch (number) {
             case (0):
@@ -135,13 +135,6 @@ public abstract class AI implements IPlay {
             this.ships[3].setShip("D4", "D6");
             this.ships[4].setShip("E4", "E5");
             break;
-            case (2):
-            this.ships[0].setShip("A0", "A4");
-            this.ships[1].setShip("A6", "A9");
-            this.ships[2].setShip("I7", "I9");
-            this.ships[3].setShip("J7", "J9");
-            this.ships[4].setShip("C9", "D9");
-            break;
             default:
             this.ships[0].setShip("J0", "J4");
             this.ships[1].setShip("C6", "C9");
@@ -149,6 +142,6 @@ public abstract class AI implements IPlay {
             this.ships[3].setShip("F8", "H8");
             this.ships[4].setShip("D7", "E7");
         }
-*/
+
     }
 }
