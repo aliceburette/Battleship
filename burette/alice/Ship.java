@@ -1,8 +1,8 @@
 package burette.alice;
 
 public class Ship {
-    public int size;
-    public int coord[][];
+    private int size;
+    private int coord[][];
 
     public Ship(int size) {
         this.size = size;
@@ -46,7 +46,7 @@ public class Ship {
         int[] mCoord = toInt(missileCoord);
         int i = 0;
         boolean hit = false;
-        while(hit == false && i<size) {
+        while(!hit && i<size) {
             if( (mCoord[0] == this.coord[i][0]) && (mCoord[1] == this.coord[i][1]) ) {
                 hit = true;
                 this.coord[i][2] = 1;
@@ -60,7 +60,7 @@ public class Ship {
     public boolean isDestroyed(){
         boolean destroyed = true;
         int i = 0;
-        while( destroyed == true && i<this.size ) {
+        while( destroyed && i<this.size ) {
             if( this.coord[i][2] == 0 ) {
                 destroyed = false;
             }
@@ -73,13 +73,14 @@ public class Ship {
         char temp = coord.charAt(0);
         int sCoord[] = new int[2];
         sCoord[1] = Integer.parseInt(coord.substring(1));
-        sCoord[0] = (int) temp-('A'-1);
+        sCoord[0] = (int) temp-('A');
         return sCoord;
     }
 
     public void resetShip(){
         for (int[] coordo : this.coord) {
-            coordo = new int[]{-1, -1, 0};
+            coordo[0] = -1;
+            coordo[1] = -1;
         }
     }
 }

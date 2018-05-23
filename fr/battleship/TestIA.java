@@ -20,17 +20,11 @@ public class TestIA {
 
         AI eia = new EasyAI();
         AI mia = new MediumAI();
-        AI hia = new HardcoreAI();
-        AI uia = new UltraHardcoreAI();
-        System.out.println("burette.alice.player.AI created");
+        AI uia = new HardcoreAI();
 
         Game game1 = new Game(eia, mia);
-        System.out.println(eia.ships[1].coord[1][0]);
-        System.out.println(game1.printBoard());
         int s1 = 0;
         int s2 = 0;
-
-
         for (int i = 0; i<100; i++) {
             IPlay res = game1.autoGame();
             if (res == eia) {

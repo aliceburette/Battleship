@@ -16,13 +16,7 @@ public class Human implements IPlay {
         this.ships[2] = new Ship(3);
         this.ships[3] = new Ship(3);
         this.ships[4] = new Ship(2);
-    }
-
-    public Human(int[] shipSizes) {  // fonction plus utilisée, sert à modifier le nombre de bateaux et leur taille
-        this.ships = new Ship[shipSizes.length];
-        for(int i=0; i<shipSizes.length; i++ ) {
-            this.ships[i] = new Ship(shipSizes[i]);
-        }
+        this.reset();
     }
 
     @Override
@@ -53,8 +47,17 @@ public class Human implements IPlay {
     }
 
     @Override
-    public void reset() {}
+    public void reset() {
+        for (Ship ship : this.ships) {
+            ship.resetShip();
+        }
+        this.shots = new ArrayList<int[]>();
+    }
 
     @Override
     public void autoShip() {}
+
+    public void addShot(int[] shotCoord) {
+        this.shots.add(shotCoord);
+    }
 }

@@ -3,7 +3,6 @@ package burette.alice.player;
 public class MediumAI extends AI {
 
     @Override
-    //TODO : corriger boucle infinie
     public String target() {
         boolean firstShot = true;
         int[] coord = new int[2];

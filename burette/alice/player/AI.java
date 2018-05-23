@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public abstract class AI implements IPlay {
 
-    public Ship[] ships;
+    private Ship[] ships;
     ArrayList<int[]> shots = new ArrayList<int[]>();
 
     public AI() {
@@ -18,13 +18,6 @@ public abstract class AI implements IPlay {
         this.ships[4] = new Ship(2);
         this.reset();
         this.autoShip();
-    }
-
-    public AI(int[] shipSizes) {  // fonction plus utilisée, sert à modifier le nombre de bateaux et leur taille
-        this.ships = new Ship[shipSizes.length];
-        for (int i = 0; i < shipSizes.length; i++) {
-            this.ships[i] = new Ship(shipSizes[i]);
-        }
     }
 
     @Override
@@ -69,7 +62,7 @@ public abstract class AI implements IPlay {
         this.shots = new ArrayList<int[]>();
     }
 
-    public boolean checkCoord(int[] coordToCheck) {
+    private boolean checkCoord(int[] coordToCheck) {
         for (Ship ship : this.ships) {
             for (int[] coord : ship.getCoord()) {
                 if ( coordToCheck[0] == coord[0] && coordToCheck[1] == coord[1]) {
@@ -83,7 +76,6 @@ public abstract class AI implements IPlay {
 /*
         boolean notChecked;
         int orientation;
-        int[] coord;
         for (Ship ship : this.ships) {
             notChecked = true;
             while (notChecked) {
@@ -120,13 +112,43 @@ public abstract class AI implements IPlay {
             }
         }
 */
+        this.ships[0].setShip("C3", "C7");
+        this.ships[1].setShip("J3", "J6");
+        this.ships[2].setShip("G0", "I0");
+        this.ships[3].setShip("H7", "J7");
+        this.ships[4].setShip("C0", "C1");
+/*
+        int number = (int) (Math.random() * 2.99);
 
-///*
-            this.ships[0].setShip("A0", "E0");
-            this.ships[1].setShip("D1", "D4");
+        switch (number) {
+            case (0):
+            this.ships[0].setShip("C3", "C7");
+            this.ships[1].setShip("J3", "J6");
+            this.ships[2].setShip("G0", "I0");
+            this.ships[3].setShip("H7", "J7");
+            this.ships[4].setShip("C0", "C1");
+            break;
+            case (1):
+            this.ships[0].setShip("D3", "H3");
+            this.ships[1].setShip("E6", "H6");
+            this.ships[2].setShip("F4", "H4");
+            this.ships[3].setShip("D4", "D6");
+            this.ships[4].setShip("E4", "E5");
+            break;
+            case (2):
+            this.ships[0].setShip("A0", "A4");
+            this.ships[1].setShip("A6", "A9");
+            this.ships[2].setShip("I7", "I9");
+            this.ships[3].setShip("J7", "J9");
+            this.ships[4].setShip("C9", "D9");
+            break;
+            default:
+            this.ships[0].setShip("J0", "J4");
+            this.ships[1].setShip("C6", "C9");
             this.ships[2].setShip("F2", "F4");
-            this.ships[3].setShip("H2", "H4");
-            this.ships[4].setShip("H6", "H8");
-//*/
+            this.ships[3].setShip("F8", "H8");
+            this.ships[4].setShip("D7", "E7");
+        }
+*/
     }
 }
